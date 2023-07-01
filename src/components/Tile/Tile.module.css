@@ -1,0 +1,11 @@
+.box {
+    align-items: center;
+    text-align: center;
+}
+
+.word {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 150px;
+}
