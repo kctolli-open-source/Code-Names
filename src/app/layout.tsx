@@ -1,4 +1,6 @@
 import { Inter } from 'next/font/google';
+import dynamic from 'next/dynamic';
+
 import './globals.css';
 
 const inter = Inter({ subsets: ['latin'] });
@@ -11,15 +13,15 @@ export const metadata = {
 }
 
 const RootLayout = ({children}: {children: React.ReactNode}) => {
-  const year = (new Date()).getFullYear();
   const icon = "https://play-lh.googleusercontent.com/ebiEB6VxGtRBCNUKj6u7jGaABGAZjrc_72HH2y9Pp7tCuVS9mmdTQUcFTE_VBP-Weh4";
 
+  const Foot = dynamic(() => import('@/components/Foot/Foot'));
+  
   return (
     <html lang="en" className={inter.className}>
       <link rel="icon" href={icon} />
       <body>{children}</body>
-      <><br /><hr /><span className="clr" /></>
-      <footer>&copy; {year} Kyle Tolliver -- {app}</footer>
+      <Foot app={app} />
     </html>
   );
 }
