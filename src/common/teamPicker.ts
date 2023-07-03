@@ -1,6 +1,6 @@
 import { randomElements } from '@/common/randomElements';
 
-const teams = [0, 1];
+const [chosenTeam] = randomElements(['0', '1'], 1)
 
-export const [red] = randomElements(teams, 1);
-export const blue = Number(!red);
+export const red: number = Number(chosenTeam);
+export const blue: number = Number(!red);
