@@ -1,10 +1,10 @@
-import { assassin, teams } from '@/common/wordPicker';
+//'use client';
 import { red, blue } from '@/common/teamPicker';
 
-const redTeam = teams[red];
-const blueTeam = teams[blue];
+export default function Selection ({assassin, teams}: any) {
+    const redTeam = teams[red];
+    const blueTeam = teams[blue];
 
-export default function Selection () {
     return (
         <section>
             <br /><hr />
@@ -21,5 +21,5 @@ export default function Selection () {
                 {blueTeam.join(', ')}
             </p>
         </section>
-    )
+    );
 }

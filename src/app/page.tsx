@@ -1,9 +1,9 @@
-"use client";
+//'use client';
 import dynamic from 'next/dynamic';
 
+import React, { Suspense } from 'react';
+import { elements, assassin, teams } from '@/common/wordPicker';
 import styles from './page.module.css';
-
-import { elements } from '@/common/wordPicker';
 
 const Home = () => {
   const Board = dynamic(() => import('@/components/Board/Board'));
@@ -11,8 +11,10 @@ const Home = () => {
 
   return (
     <main className={styles.main}>
-      <Board words={elements} />
-      <Selection />
+      <Suspense fallback={<div>Loading...</div>}>
+        <Board elements={elements} />
+        <Selection assassin={assassin} teams={teams} />
+      </Suspense>
     </main>
   )
 }
