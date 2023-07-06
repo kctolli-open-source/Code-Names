@@ -1,10 +1,6 @@
-//'use client';
-import { red, blue } from '@/common/teamPicker';
+'use client';
 
-export default function Selection ({assassin, teams}: any) {
-    const redTeam = teams[red];
-    const blueTeam = teams[blue];
-
+export default function Selection ({assassin, red, blue}: any) {
     return (
         <section>
             <br /><hr />
@@ -13,13 +9,14 @@ export default function Selection ({assassin, teams}: any) {
                 {assassin}
             </p>
             <p>
-                <b>Red ({redTeam.length}): </b> 
-                {redTeam.join(', ')}
+                <b>Red ({red.length}): </b> 
+                {red.join(', ')}
             </p>
             <p>
-                <b>Blue ({blueTeam.length}): </b> 
-                {blueTeam.join(', ')}
+                <b>Blue ({blue.length}): </b> 
+                {blue.join(', ')}
             </p>
+            <hr /><br />
         </section>
     );
 }
