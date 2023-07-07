@@ -1,21 +1,29 @@
 'use client';
 
-export default function Selection ({assassin, red, blue}: any) {
+export default function Selection ({data}: any) {
+    const { assassin, red, blue } = data;
+
     return (
         <section>
             <br /><hr />
-            <p>
-                <b>Assassin: </b> 
-                {assassin}
-            </p>
-            <p>
-                <b>Red ({red.length}): </b> 
-                {red.join(', ')}
-            </p>
-            <p>
-                <b>Blue ({blue.length}): </b> 
-                {blue.join(', ')}
-            </p>
+            { assassin && 
+                <p>
+                    <b>Assassin: </b> 
+                    {assassin}
+                </p>
+            }
+            { red &&
+                <p>
+                    <b>Red ({red.length}): </b> 
+                    {red.join(', ')}
+                </p>
+            }
+            { blue &&
+                <p>
+                    <b>Blue ({blue.length}): </b> 
+                    {blue.join(', ')}
+                </p>
+            }
             <hr /><br />
         </section>
     );

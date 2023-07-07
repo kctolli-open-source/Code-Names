@@ -1,7 +1,6 @@
-const isDev = process.env.NODE_ENV === 'development';
-
 export default class ApiHelper {
     private requester: URL;
+    private static isDev: boolean = (process.env.NODE_ENV === 'development');
 
     public constructor(request: Request) {
         this.requester = new URL(request.url);
@@ -15,8 +14,17 @@ export default class ApiHelper {
     public href         = (): string => this.requester.href;
 
     public static route = (): string => 
-        (isDev ? 'http://localhost:3000': 'https://code-names-kctolli.vercel.app/');
+        (this.isDev ? 'http://localhost:3000': 'https://code-names-kctolli.vercel.app/');
 
     public static router = (endpoint: string): string => 
         (`${this.route()}/api/${endpoint}`);
+
+    public static fetchData = async (endpoint: string, setData: any) => {
+        try {
+            const response = await fetch(this.router(endpoint));
+            setData(await response.json());
+        } catch (error) {
+            console.error('Error fetching data: ', error);
+        }
+    }
 }

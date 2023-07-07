@@ -2,11 +2,13 @@
 import dynamic from 'next/dynamic';
 import { Grid } from '@mui/material';
 
-export default function Board({elements}: {elements: string[]}) {
-    const Tile = dynamic(() => import('@/components/Tile/Tile'));
+import s from './Board.module.css';
+
+export default function Board({ elements }: {elements: string[]}) {
+    const Tile = dynamic(() => import('@/components/Board/Tile'));
 
     return (
-        <section>
+        <section className={s.board}>
             <Grid container spacing={2}>
                 {elements.map((word, index) => (
                     <Grid item spacing={2} key={index}>
