@@ -1,4 +1,4 @@
-export const words: string[] = [
+const words: string[] = [
     'Acne',
     'Acre',
     'Addendum',
@@ -670,3 +670,5 @@ export const words: string[] = [
     'Zone',
     'Zoo',
 ];
+
+export default words;

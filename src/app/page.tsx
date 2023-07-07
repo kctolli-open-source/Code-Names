@@ -1,20 +1,18 @@
-"use client";
 import dynamic from 'next/dynamic';
 
 import styles from './page.module.css';
 
-import { elements } from '@/common/wordPicker';
+export default function Home() {
+    const Components = dynamic(() => import('@/components/Components'));
 
-const Home = () => {
-  const Board = dynamic(() => import('@/components/Board/Board'));
-  const Selection = dynamic(() => import('@/components/Selection/Selection'));
+    const year = (new Date()).getFullYear();
 
-  return (
-    <main className={styles.main}>
-      <Board words={elements} />
-      <Selection />
-    </main>
-  )
+    return (
+        <main className={styles.main}>
+            <Components />
+            <footer>
+                &copy; {year} Kyle Tolliver -- Code Names
+            </footer>
+        </main>
+    );
 }
-
-export default Home;

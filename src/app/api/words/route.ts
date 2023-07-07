@@ -1,5 +1,21 @@
-import { words } from '@/common/words';
-import { randomElements } from '@/common/randomElements';
-import { response } from '@/common/api/Response';
+import { response } from '@/app/api/response';
 
-export const GET = async() => response(randomElements(words, 25));
+import ArrHelper from '@/common/arrHelper';
+
+import words from './words';
+import teams from './teams';
+
+export const GET = async(): Promise<any> => {
+    const maxWords: number = 25;
+
+    const selectedWords: string[] = ArrHelper.randomElements(words, maxWords);
+    const [assassin] = ArrHelper.randomElements(selectedWords, 1);
+    const team = teams(selectedWords, assassin);
+
+    return response({
+        words: selectedWords,
+        assassin: assassin,
+        red: team.red,
+        blue: team.blue
+    });
+}

@@ -1,9 +1,7 @@
 'use client';
-
-import React from 'react';
 import { Box } from '@mui/material';
 
-import s from './Tile.module.css';
+import s from './Board.module.css';
 
 export default function Tile ({word}: {word: string}) {
     const size = 150;

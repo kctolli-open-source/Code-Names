@@ -1,25 +1,30 @@
-import { assassin, teams } from '@/common/wordPicker';
-import { red, blue } from '@/common/teamPicker';
+'use client';
 
-const redTeam = teams[red];
-const blueTeam = teams[blue];
+export default function Selection ({data}: any) {
+    const { assassin, red, blue } = data;
 
-export default function Selection () {
     return (
         <section>
             <br /><hr />
-            <p>
-                <b>Assassin: </b> 
-                {assassin}
-            </p>
-            <p>
-                <b>Red ({redTeam.length}): </b> 
-                {redTeam.join(', ')}
-            </p>
-            <p>
-                <b>Blue ({blueTeam.length}): </b> 
-                {blueTeam.join(', ')}
-            </p>
+            { assassin && 
+                <p>
+                    <b>Assassin: </b> 
+                    {assassin}
+                </p>
+            }
+            { red &&
+                <p>
+                    <b>Red ({red.length}): </b> 
+                    {red.join(', ')}
+                </p>
+            }
+            { blue &&
+                <p>
+                    <b>Blue ({blue.length}): </b> 
+                    {blue.join(', ')}
+                </p>
+            }
+            <hr /><br />
         </section>
-    )
+    );
 }
