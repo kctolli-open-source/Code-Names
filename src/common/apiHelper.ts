@@ -21,7 +21,7 @@ export default class ApiHelper {
 
     public static fetchData = async (endpoint: string, setData: any) => {
         try {
-            const response = await fetch(this.router(endpoint));
+            const response = await fetch(this.router(`${endpoint}`));
             setData(await response.json());
         } catch (error) {
             console.error('Error fetching data: ', error);

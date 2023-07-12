@@ -14,7 +14,6 @@ export default function teamarr (selectedWords: string[], assassin: string) {
     const team1: string[] = ArrHelper.randomElements(newArray, 8);
 
     const teamarr: string[][] = [team0, team1];
-
     let red = teamarr[teamRandomizer().red];
     let blue = teamarr[teamRandomizer().blue];
 

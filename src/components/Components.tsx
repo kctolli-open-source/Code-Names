@@ -1,5 +1,4 @@
 'use client';
-
 import React, { useState, useEffect, Suspense } from 'react';
 import dynamic from 'next/dynamic';
 
@@ -13,6 +12,8 @@ export default function Components() {
     const [data, setData]: any[] = useState<any[]>([]);
 
     useEffect(() => {ApiHelper.fetchData('words', setData)}, ['words']);
+
+    console.log(data.date);
 
     return (
         <Suspense fallback={<Board elements={loadingData} />}>

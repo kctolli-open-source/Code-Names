@@ -15,6 +15,7 @@ export const GET = async(): Promise<any> => {
         words: selectedWords,
         assassin: assassin,
         red: team.red,
-        blue: team.blue
+        blue: team.blue,
+        date: new Date(),
     });
 }
