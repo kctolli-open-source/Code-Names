@@ -10,9 +10,9 @@ export default function Components() {
     const Selection = dynamic(() => import('@/components/Selection/Selection'));
 
     const loadingData = new Array(25).fill("");
-    const [data, setData]: any[] = useState<any[]>();
+    const [data, setData]: any[] = useState<any[]>([]);
 
-    useEffect(() => {ApiHelper.fetchData('words', setData)}, []);
+    useEffect(() => {ApiHelper.fetchData('words', setData)}, ['words']);
 
     return (
         <Suspense fallback={<Board elements={loadingData} />}>

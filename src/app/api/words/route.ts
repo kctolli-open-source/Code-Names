@@ -1,5 +1,4 @@
 import { response } from '@/app/api/response';
-
 import ArrHelper from '@/common/arrHelper';
 
 import words from './words';
