@@ -1,6 +1,6 @@
 import ArrHelper from '@/common/arrHelper';
 
-export default function teamarr (selectedWords: string[], assassin: string) {
+export default function teams (selectedWords: string[], assassin: string) {
     const teamRandomizer = () => {
         const team: string[] = ['0', '1'];
         const [chosenTeam] = ArrHelper.randomElements(team, 1);

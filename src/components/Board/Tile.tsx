@@ -1,5 +1,5 @@
 'use client';
-import { Box } from '@mui/material';
+import { Box, Button } from '@mui/material';
 
 import s from './Board.module.css';
 
@@ -14,10 +14,12 @@ export default function Tile ({word}: {word: string}) {
                 height={`${size}px`}
                 backgroundColor="black"
                 color="white"
-            >
-                <span className={s.word}>
-                    {word}
-                </span>
+            >   
+                <>
+                    <span className={s.word}>
+                        {word}
+                    </span>
+                </>
             </Box>
         </div>
     );
